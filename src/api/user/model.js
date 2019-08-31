@@ -4,7 +4,7 @@ import mongoose, { Schema } from 'mongoose'
 import mongooseKeywords from 'mongoose-keywords'
 import { env } from '../../config'
 
-const roles = ['user', 'admin']
+const roles = ['user', 'admin', 'dogwalker']
 
 const userSchema = new Schema({
   email: {
@@ -21,6 +21,24 @@ const userSchema = new Schema({
     minlength: 6
   },
   name: {
+    type: String,
+    index: true,
+    trim: true
+  },
+  lastName: {
+    type: String,
+    trim: true
+  },
+  phoneNumber: {
+    type: String,
+    trim: true
+  },
+  city: {
+    type: String,
+    index: true,
+    trim: true
+  },
+  state: {
     type: String,
     index: true,
     trim: true
@@ -69,7 +87,7 @@ userSchema.methods = {
     let fields = ['id', 'name', 'picture']
 
     if (full) {
-      fields = [...fields, 'email', 'createdAt']
+      fields = [...fields, 'email', 'lastName', 'city', 'state', 'createdAt']
     }
 
     fields.forEach((field) => { view[field] = this[field] })

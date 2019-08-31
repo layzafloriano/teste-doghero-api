@@ -47,6 +47,7 @@ describe('view', () => {
     expect(view.id).toBe(user.id)
     expect(view.name).toBe(user.name)
     expect(view.email).toBe(user.email)
+    expect(view.lastName).toBe(user.lastName)
     expect(view.picture).toBe(user.picture)
     expect(view.createdAt).toEqual(user.createdAt)
   })
