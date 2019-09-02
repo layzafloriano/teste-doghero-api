@@ -34,6 +34,7 @@ petSchema.methods = {
       age: this.age,
       bearing: this.bearing,
       picture: this.picture,
+      size: this.size,
       ownerID: this.ownerID,
       createdAt: this.createdAt,
       updatedAt: this.updatedAt
