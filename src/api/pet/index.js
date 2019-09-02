@@ -1,7 +1,7 @@
 import { Router } from 'express'
 import { middleware as query } from 'querymen'
 import { middleware as body } from 'bodymen'
-import { master } from '../../services/passport'
+import { master, token } from '../../services/passport'
 import { create, index, show, update, destroy } from './controller'
 import { schema } from './model'
 export Pet, { schema } from './model'
@@ -25,7 +25,7 @@ const { name, age, bearing, picture, ownerID } = schema.tree
  * @apiError 401 master access only.
  */
 router.post('/',
-  master(),
+  token({ required: true }),
   body({ name, age, bearing, picture, ownerID }),
   create)
 
@@ -42,7 +42,6 @@ router.post('/',
  * @apiError 401 master access only.
  */
 router.get('/',
-  master(),
   query(),
   index)
 
@@ -58,7 +57,6 @@ router.get('/',
  * @apiError 401 master access only.
  */
 router.get('/:id',
-  master(),
   show)
 
 /**
@@ -77,7 +75,7 @@ router.get('/:id',
  * @apiError 401 master access only.
  */
 router.put('/:id',
-  master(),
+  token({ required: true }),
   body({ name, age, bearing, picture, ownerID }),
   update)
 
@@ -92,7 +90,7 @@ router.put('/:id',
  * @apiError 401 master access only.
  */
 router.delete('/:id',
-  master(),
+  token({ required: true }),
   destroy)
 
 export default router
