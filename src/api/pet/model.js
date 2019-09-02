@@ -15,7 +15,8 @@ const petSchema = new Schema({
   },
   picture: {
     type: String
-  }
+  },
+  ownerID: [{ type: Schema.Types.ObjectId, ref: 'User' }]
 }, {
   timestamps: true,
   toJSON: {
@@ -33,6 +34,7 @@ petSchema.methods = {
       age: this.age,
       bearing: this.bearing,
       picture: this.picture,
+      ownerID: this.ownerID,
       createdAt: this.createdAt,
       updatedAt: this.updatedAt
     }

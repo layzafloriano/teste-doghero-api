@@ -5,6 +5,13 @@
 - [Auth](#auth)
 	- [Authenticate](#authenticate)
 	
+- [Pet](#pet)
+	- [Create pet](#create-pet)
+	- [Delete pet](#delete-pet)
+	- [Retrieve pet](#retrieve-pet)
+	- [Retrieve pets](#retrieve-pets)
+	- [Update pet](#update-pet)
+	
 - [User](#user)
 	- [Create user](#create-user)
 	- [Delete user](#delete-user)
@@ -36,6 +43,86 @@
 |---------|-----------|--------------------------------------|
 | access_token			| String			|  <p>Master access_token.</p>							|
 
+# Pet
+
+## Create pet
+
+
+
+	POST /pets
+
+
+### Parameters
+
+| Name    | Type      | Description                          |
+|---------|-----------|--------------------------------------|
+| access_token			| String			|  <p>master access token.</p>							|
+| name			| 			|  <p>Pet's name.</p>							|
+| age			| 			|  <p>Pet's age.</p>							|
+| bearing			| 			|  <p>Pet's bearing.</p>							|
+| picture			| 			|  <p>Pet's picture.</p>							|
+
+## Delete pet
+
+
+
+	DELETE /pets/:id
+
+
+### Parameters
+
+| Name    | Type      | Description                          |
+|---------|-----------|--------------------------------------|
+| access_token			| String			|  <p>master access token.</p>							|
+
+## Retrieve pet
+
+
+
+	GET /pets/:id
+
+
+### Parameters
+
+| Name    | Type      | Description                          |
+|---------|-----------|--------------------------------------|
+| access_token			| String			|  <p>master access token.</p>							|
+
+## Retrieve pets
+
+
+
+	GET /pets
+
+
+### Parameters
+
+| Name    | Type      | Description                          |
+|---------|-----------|--------------------------------------|
+| access_token			| String			|  <p>master access token.</p>							|
+| q			| String			| **optional** <p>Query to search.</p>							|
+| page			| Number			| **optional** <p>Page number.</p>							|
+| limit			| Number			| **optional** <p>Amount of returned items.</p>							|
+| sort			| String[]			| **optional** <p>Order of returned items.</p>							|
+| fields			| String[]			| **optional** <p>Fields to be returned.</p>							|
+
+## Update pet
+
+
+
+	PUT /pets/:id
+
+
+### Parameters
+
+| Name    | Type      | Description                          |
+|---------|-----------|--------------------------------------|
+| access_token			| String			|  <p>master access token.</p>							|
+| name			| 			|  <p>Pet's name.</p>							|
+| age			| 			|  <p>Pet's age.</p>							|
+| bearing			| 			|  <p>Pet's bearing.</p>							|
+| picture			| 			|  <p>Pet's picture.</p>							|
+
 # User
 
 ## Create user
@@ -53,6 +140,7 @@
 | email			| String			|  <p>User's email.</p>							|
 | password			| String			|  <p>User's password.</p>							|
 | name			| String			| **optional** <p>User's name.</p>							|
+| lastName			| String			| **optional** <p>User's last name.</p>							|
 | picture			| String			| **optional** <p>User's picture.</p>							|
 | role			| String			| **optional** <p>User's role.</p>							|
 
