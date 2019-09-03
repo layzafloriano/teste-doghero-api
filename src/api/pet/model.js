@@ -1,6 +1,7 @@
 import mongoose, { Schema } from 'mongoose'
 
 const sizes = ['mini', 'small', 'medium', 'large', 'extralarge']
+const ageGroups = ['year', 'month']
 
 const petSchema = new Schema({
   name: {
@@ -8,6 +9,10 @@ const petSchema = new Schema({
   },
   age: {
     type: Number
+  },
+  ageGroup: {
+    type: String,
+    enum: ageGroups
   },
   size: {
     type: String,
@@ -32,6 +37,7 @@ petSchema.methods = {
       id: this.id,
       name: this.name,
       age: this.age,
+      ageGroup: this.ageGroup,
       bearing: this.bearing,
       picture: this.picture,
       size: this.size,
